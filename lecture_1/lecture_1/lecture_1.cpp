@@ -1,20 +1,51 @@
-// lecture_1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+/*
 #include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    const int a = -5;
+    int l1;
+    cout << "wpisz liczbe: ";
+    cin >> l1;
+    cout << "liczba l1 jest: " << endl;
+
+    if (a > 0) 
+        cout << a << endl; 
+    else 
+        cout << "zmieniamy znak: ";
+        cout << -a;
+
+    return 0;
+} */
+
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int main(int argc, char* argv[])
+{
+    // Deklarujemy jedn¹ zmienn¹ zawieraj¹c¹ obrabian¹ liczbê 
+    int l1;
+    cout << "Program jesli_2 obliczajacy wartosc bezwzgledna liczby\n\n";
+
+    // Poprosimy u¿ytkownika o wprowadzenie liczby 
+    cout << "Wpisz jakas liczbe calkowita : ";
+    cin >> l1;
+    // sprawdzimy, czy jest ona ujemna 
+    if (l1 < 0)
+    {
+        // otwieraj¹c ten nawias klamrowy informujemy, ¿e jeœli warunek jest prawdziwy, 
+        // to bêdzie wykonywana wiêcej ni¿ jedna instrukcja. Dziêki temu mo¿emy 
+        // najpierw wypisaæ informacjê o zmianie znaku
+        cout << "Wprowadziles liczbe ujemna. Nastapi zmiana jej znaku\n";
+        // nastêpnie podstawienie wartoœci ze zmienionym znakiem. 
+        l1 = -l1;
+    }
+    // No i wyœwietlenie wyniku 
+    cout << "Wartosc bezwzgledna: " << l1 << endl;
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
