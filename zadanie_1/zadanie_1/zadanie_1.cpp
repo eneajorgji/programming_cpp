@@ -4,10 +4,10 @@ int main()
 {
     int a, b, c, d, max_1, max_2, wynik;
     char wyrazenie;
+    bool status_ok;
 
     cout << "Podaj cztery liczby calkowite: \n";
     cin >> a >> b >> c >> d;
-    bool status_ok;
 
     max_1 = a;
     max_2 = b;
@@ -40,24 +40,28 @@ int main()
         max_2 = d;
     }
 
+    cout << "Pierwsza wieksza liczba to: " << max_1 << endl;
+    cout << "Druga wieksza liczba to: " << max_2 << "\n";
+
     cout << "Wybieraj typ wyniku dzielenia" << endl;
     cout << "Wpisz: a - Wynik obciety" << endl;
-    cout << "Wpisz: b - Wynik  poprawny" << endl;
+    cout << "Wpisz: b - Wynik poprawny \n";
     cin >> wyrazenie;
 
-    if (wyrazenie == a)
+    if (wyrazenie == 'a')
     {
         if (max_1 - max_2 == 0)
         {
             status_ok = false;
-            cout << "max_1 - max_2 wynosi 0" << endl;
+            cout << "max_1 - max_2 wynosi 0, musi byc rozny od 0" << endl;
         }
         else
         {
-            wynik = (max_1 + max_2) / (max_1 + max_2)
+            wynik = (max_1 + max_2) / (max_1 - max_2);
+            //cout << "Wyniki dzielenia (Wynik obciety): " << wynik << endl;
         }
     } 
-    else if (wyrazenie == b)
+    else if (wyrazenie == 'b')
     {
         if (max_1 - max_2 == 0)
         {
@@ -66,19 +70,27 @@ int main()
         }
         else
         {
-            wynik = (max_1 + max_2) / 1.0 * (max_1 + max_2)
+            double(wynik) = double((max_1 + max_2)) / double((max_1 - max_2));
+            //cout << "Wyniki dzielenia (Wynik poprawny): " << wynik << endl;
         }
     }
     else
     {
         status_ok = false;
+        cout << "Nieprawidlowa litera, ani a ani b nie zastalo wybrane." << endl;
     }
+
 
     if (status_ok)
     {
-        cout << "Pierwsza wieksza liczba to " << max_1 << endl;
-        cout << "Druga wieksza liczba to " << max_2 << endl;
-        cout << "Wynik wynosi: " << wynik << endl;
+        if (wyrazenie == 'a')
+        {
+            cout << "Wyniki dzielenia (max_1 + max_2) / (max_1 - max_2) (Wynik obciety): " << wynik << endl;
+        }
+        else
+        {
+            cout << "Wyniki dzielenia (max_1 + max_2) / (max_1 - max_2) (Wynik poprawny): " << wynik << endl;
+        }
     }
 
     return 0;
