@@ -5,6 +5,7 @@ int main()
     int a, b, c, d, max_1, max_2, wynik;
     char wyrazenie;
     bool status_ok;
+    double wynik_poprawny;
 
     cout << "Podaj cztery liczby calkowite: \n";
     cin >> a >> b >> c >> d;
@@ -25,7 +26,7 @@ int main()
         max_2 = max_1;
         max_1 = c;
     }
-    else if (c > max_2) 
+    else if (c > max_2)
     {
         max_2 = c;
     }
@@ -40,10 +41,10 @@ int main()
         max_2 = d;
     }
 
-    cout << "Pierwsza wieksza liczba to: " << max_1 << endl;
-    cout << "Druga wieksza liczba to: " << max_2 << "\n";
+    cout << "Najwieksza liczba to: " << max_1 << endl;
+    cout << "Druga najwieksza liczba to: " << max_2 << "\n";
 
-    cout << "Wybieraj typ wyniku dzielenia" << endl;
+    cout << "Wybierz typ wyniku:" << endl;
     cout << "Wpisz: a - Wynik obciety" << endl;
     cout << "Wpisz: b - Wynik poprawny \n";
     cin >> wyrazenie;
@@ -53,25 +54,23 @@ int main()
         if (max_1 - max_2 == 0)
         {
             status_ok = false;
-            cout << "max_1 - max_2 wynosi 0, musi byc rozny od 0" << endl;
+            cout << "max_1 - max_2 rowna sie 0, musi byc rozny od 0" << endl;
         }
         else
         {
             wynik = (max_1 + max_2) / (max_1 - max_2);
-            //cout << "Wyniki dzielenia (Wynik obciety): " << wynik << endl;
         }
-    } 
+    }
     else if (wyrazenie == 'b')
     {
         if (max_1 - max_2 == 0)
         {
             status_ok = false;
-            cout << "max_1 - max_2 wynosi 0" << endl;
+            cout << "max_1 - max_2 rowna sie 0, musi byc rozny od 0" << endl;
         }
         else
         {
-            double(wynik) = double((max_1 + max_2)) / double((max_1 - max_2));
-            //cout << "Wyniki dzielenia (Wynik poprawny): " << wynik << endl;
+            wynik_poprawny = (max_1 + max_2) / (1.0 * (max_1 - max_2));
         }
     }
     else
@@ -79,7 +78,6 @@ int main()
         status_ok = false;
         cout << "Nieprawidlowa litera, ani a ani b nie zastalo wybrane." << endl;
     }
-
 
     if (status_ok)
     {
@@ -89,7 +87,7 @@ int main()
         }
         else
         {
-            cout << "Wyniki dzielenia (max_1 + max_2) / (max_1 - max_2) (Wynik poprawny): " << wynik << endl;
+            cout << "Wyniki dzielenia (max_1 + max_2) / (max_1 - max_2) (Wynik poprawny): " << wynik_poprawny << endl;
         }
     }
 
