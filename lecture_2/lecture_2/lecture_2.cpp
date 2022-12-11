@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include <cstdlib>
 
@@ -46,6 +47,58 @@ int main(int argc, char* argv[])
 
     // Na koniec wypiszemy ocenê 
     cout << "Twoja prace wypada ocenic na " << ocena << endl;
+
+    return 0;
+}
+*/
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    // zadeklarujemy dwie zmienne: w jednej bêdziemy pamiêtali nawiêkszy
+    // dotychczas wczytany element, a w drugiej aktualnie wczytany
+    double aktualna, najwieksza;
+
+    // Na pocz¹tek powitanie:
+    cout << "Wprowadzaj kolejne wyrazy ciagu, mog¹ byæ rzeczywiste.\n";
+    cout << "Podanie liczby niedodatniej konczy wczytywanie\n";
+
+    // Na pocz¹tek wczytamy pierwszy element
+    cout << "Podaj element: ";
+    cin >> aktualna;
+
+    // Ju¿ mamy wczytany pierwszy element, na pewno jest on dotychczas
+    // najwiêkszym wczytanym elementem.
+    najwieksza = aktualna;
+
+    // Pora zacz¹æ nasz¹ pêtlê. Proponujemy zastosowanie pêtli typu
+    // while, lecz nic nie stoi na przeszkodzie, by wykorzystaæ
+    // pêtlê typu do-while. Pêtla while wydaje siê byæ w
+    // tym przypadku bardziej naturalna, poniewa¿ mamy ju¿ pierwszy
+    // element i od razu na wstêpie mo¿emy sprawdziæ, czy nie jest on
+    // koñcem naszego ci¹gu
+    while (aktualna > 0)
+    {
+        // Wewn¹trz ka¿dego przebiegu pêtli wczytujemy kolejny element
+        cout << "Podaj element: ";
+        cin >> aktualna;
+
+        // Porównujemy go z najwiêkszym
+        if (aktualna > najwieksza)
+            // Jeœli nowo wczytana liczba jest wiêksza od najwiêkszej wczytanej
+            // do tej pory, to ta nowo wczytana stanie siê  najwiêksz¹ dotychczas
+            // wczytan¹
+            najwieksza = aktualna;
+
+        // i to ju¿ koniec pêtli
+    };
+
+    // Po zakoñczeniu pêtli pozostaje nam jeszcze wyœwietliæ wyniki
+    cout << "Najwieksza wprowadzona liczba to " << najwieksza << endl;
 
     return 0;
 }

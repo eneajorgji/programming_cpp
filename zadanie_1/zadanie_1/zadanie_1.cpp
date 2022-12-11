@@ -71,7 +71,7 @@ int main()
         else
         {
             wynik_poprawny = (max_1 + max_2) / (1.0 * (max_1 - max_2));
-            wynik = double(max_1 + max_2) / (max_1 - max_2)
+            //wynik = double(max_1 + max_2) / (max_1 - max_2)
         }
     }
     else
@@ -89,7 +89,7 @@ int main()
         else
         {
             cout << "Wyniki dzielenia (max_1 + max_2) / (max_1 - max_2) (Wynik poprawny): " << wynik_poprawny << endl;
-            cout << "Wynik dzielenia" << wynik << endl;
+            //cout << "Wynik dzielenia" << 1.0*(max_1 + max_2) / (max_1 - max_2) << endl;
         }
     }
 
