@@ -5,48 +5,46 @@ using namespace std;
 
 int main() {
     const int D = 5;
-    int tmp1 = 0, tmp2 = 0, najwieszka_liczba = 0, ilosc_jednocyfrowych = 0, suma_jednocyfrowych = 0, wieksze_liczby = 0;
-    double avg = 0;
+    int pierwsza_wprowadzona = 0, liczba_calkowita = 0, najwieksza_liczba = 0, ilosc_jednocyfrowych = 0, suma_jednocyfrowych = 0, wieksze_liczby = 0;
+    double srednia_jednocyfrowych = 0;
     bool pierwsza = true;
 
     do {
-        cout << "Wprowadz liczbe:";
-        cin >> tmp2;
+        cout << "Wprowadz liczbe: ";
+        cin >> liczba_calkowita;
 
-        // wyszukanie maxymalnej wprowadzonej liczby
-        if (tmp2 > najwieszka_liczba || pierwsza == true) {
-            najwieszka_liczba = tmp2;
+        if (liczba_calkowita > najwieksza_liczba || pierwsza == true) {
+            najwieksza_liczba = liczba_calkowita;
         }
 
-        // wyszukanie sk³adowych do œredniej liczb jednocyfrowych 
-        if (tmp2 >= -9 && tmp2 <= 9) {
-            suma_jednocyfrowych += tmp2;
+        if (liczba_calkowita >= -9 && liczba_calkowita <= 9) {
+            suma_jednocyfrowych += liczba_calkowita;
             ilosc_jednocyfrowych++;
         }
 
-        // sprawdzenie czy ju¿ by³a wprowadzona jaka liczba
         if (pierwsza == true) {
-            tmp1 = tmp2;
+            pierwsza_wprowadzona = liczba_calkowita;
             pierwsza = false;
         }
 
-        // zliczanie liczb wiêkszych od poprzednika 
-        if (tmp2 > tmp1) {
+        if (liczba_calkowita > pierwsza_wprowadzona) {
             wieksze_liczby++;
         }
 
-        //zachowanie ostatnio wprowadzonej liczby przed nastêpnym wprowadzeniem
-        tmp1 = tmp2;
+        pierwsza_wprowadzona = liczba_calkowita;
 
-    } while (tmp2 % D != 0);
-    cout << "Najwieksza liczba: " << najwieszka_liczba << endl;
-    avg = double(suma_jednocyfrowych) / ilosc_jednocyfrowych;
+    } while (liczba_calkowita % D != 0);
+    cout << "Najwieksza liczba: " << najwieksza_liczba << endl;
+    
+    
     if (ilosc_jednocyfrowych == 0) {
-        cout << "Nie ma zadnej liczby jednocyfrowej." << end;
-    }
+        cout << "Nie wprowadzono zadnej liczby jendocyfrowej." << endl;
+    } 
     else {
-        cout << "Srednia liczb jednocyfrowych: " << avg << endl;
+        srednia_jednocyfrowych = double(suma_jednocyfrowych) / ilosc_jednocyfrowych;
+        cout << "Srednia liczb jednocyfrowych: " << srednia_jednocyfrowych << endl;
     }
+
     cout << "Ilosc wiekszych liczb od poprzednika: " << wieksze_liczby << endl;
     return 0;
 }
