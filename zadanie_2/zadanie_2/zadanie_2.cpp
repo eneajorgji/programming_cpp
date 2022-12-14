@@ -5,46 +5,42 @@ using namespace std;
 
 int main() {
     const int D = 5;
-    int liczba_calk, liczba_max, first_entered_num, suma_jednocyfr=0, ilosc_jednocyfr=0;
+    int liczba_calk, liczba_max, pierwsza_wprowadzona_liczba, suma_jednocyfr = 0, ilosc_jednocyfr = 0, wieksze_od_poprzed = 0;
+    double srednia;
+    bool pierwsza_wprowadzona = true;
 
     cout << "Wprowadz liczbe: ";
-    cin >> first_entered_num;
+    cin >> pierwsza_wprowadzona_liczba;
 
-    liczba_max = first_entered_num;
-
-    if (first_entered_num >= -9 && first_entered_num <= 9) {
-        suma_jednocyfr = suma_jednocyfr + first_entered_num;
-        ilosc_jednocyfr = ilosc_jednocyfr + 1;
-    }
+    liczba_max = pierwsza_wprowadzona_liczba;
 
     do {
-        cout << "Wprowadz liczbe: ";        
+        cout << "Wprowadz liczbe: ";
         cin >> liczba_calk;
 
-        // najwieksza liczba 
         if (liczba_calk > liczba_max) {
             liczba_max = liczba_calk;
-            // tu dodaj wiekszych od swoixh porzpedników
-
+            wieksze_od_poprzed = wieksze_od_poprzed + 1;
         }
 
-        // wyszukanie sk³adowych do œredniej liczb jednocyfrowych 
+        if ((pierwsza_wprowadzona_liczba >= -9 && pierwsza_wprowadzona_liczba <= 9) && (pierwsza_wprowadzona == true)) {
+            suma_jednocyfr = suma_jednocyfr + pierwsza_wprowadzona_liczba;
+            ilosc_jednocyfr = ilosc_jednocyfr + 1;
+            pierwsza_wprowadzona = false;
+        }
+
         if (liczba_calk >= -9 && liczba_calk <= 9) {
             suma_jednocyfr = suma_jednocyfr + liczba_calk;
             ilosc_jednocyfr = ilosc_jednocyfr + 1;
         }
 
-        // ilosc liczb wiekszych od swojego poprzednika
-
-
     } while (liczba_calk % D != 0);
-    
 
     cout << "Najwieksza liczba: " << liczba_max << endl;
-    
-    cout << "Suma jednocyfrowych: " << suma_jednocyfr << endl;
-    cout << "Ilosc jednocyfrowych: " << ilosc_jednocyfr << endl;
-
-
+    srednia = suma_jednocyfr / (1.0 * ilosc_jednocyfr);
+    cout << "Srednia liczb jednocyfrowych: " << srednia << endl;
+    cout << "Ilosc wiekszych liczb od poprzednika: " << wieksze_od_poprzed << endl;
     return 0;
 }
+
+// pierwsza_wprowadzona
