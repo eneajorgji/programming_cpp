@@ -1,20 +1,25 @@
 #include <iostream>
 #include <cstdlib>
+
 using namespace std;
+
 int main()
 {
+    // tym razem deklarujemy jedynie tablicê na 5 znaków
+    char A[5];
 
-    // Zmienne takie same jak w poprzednim przyk³adzie, przy czym nie 
-    // trzeba inicjowaæ zmiennej i - tym zajmie siê konstrukcja pêtli  
-    int i, potega = 1;
-    // rozpoczynamy pêtlê 
-    for (i = 0; i <= 10; i++)
-    {
-        // wypisujemy aktualn¹ potêgê
-        cout << "2 ^ " << i << " = " << potega << endl;
-        // i obliczamy nastêpn¹ potêgê 
-        potega = potega * 2;
-    }
+    cout << "Znacznie lepsza próba pisania w odwrotnej kolejnosci\n\n";
+
+    cout << "Wprowadz 5 znaków: \n";
+
+    // do wczytywania wykorzystamy poznan¹ wczeœniej pêtlê for: 
+    for (int i = 0; i < 5; i++)
+        cin >> A[i];
+
+    // do wyœwietlenia tablicy tak¿e wykorzystamy pêtlê for, tym razem jednak
+    // bêdzie ona bieg³a w odwrotnym kierunku
+    for (int i = 4; i >= 0; i--)
+        cout << A[i] << endl;
 
     return 0;
 }
