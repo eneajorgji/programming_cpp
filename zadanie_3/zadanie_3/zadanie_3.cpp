@@ -32,35 +32,28 @@ int main() {
     cout << "Srednia: " << 1.0 * suma / m << endl;
 
     // podpunkt C
-/*
-    for (int i = 0; i < N; i++){
-        cout << "Wprowadz "<< i + 1 << " element tablicy" << endl;
-        cin>>tablica_c[i];
-    }
-
-    for(int i = 0; i < N; i++){
-        cout << tablica_c[i]<<" ";
-    }
-*/
     for (int i = 0; i < N; i++) {
         cout << "Wprowadz " << i + 1 << " element tablicy" << endl;
         cin >> tablica_c[i];
     }
 
     cout << "Drukuj tablica_c: " << tablica_c;
+    cout << endl;
 
     for (int cykl = 0; cykl < N; cykl++) {
-        char temp = tablica_c[N - 1]; //zapisuje ostatnie element
-
-        for (int i = (N - 1); i >= 0; i--) {
-            tablica_c[i] = tablica_c[i - 1];
-        }
-        tablica_c[0] = temp;
+        char temp = tablica_c[N - 1]; 
 
         for (int i = 0; i < N; i++) {
             cout << tablica_c[i] << " ";
         }
         cout << endl;
+
+        for (int i = (N - 1); i > 0; i--) {
+            tablica_c[i] = tablica_c[i-1];
+        }
+      
+        tablica_c[0] = temp;
+        
     }
 
     return 0;
