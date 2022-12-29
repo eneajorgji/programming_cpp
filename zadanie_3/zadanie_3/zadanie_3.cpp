@@ -5,11 +5,8 @@ using namespace std;
 
 int main() {
     int k, m = 0, suma = 0;
-    const int MAX = 100;
-    const int N = 4;
-    string tmp_napis;
-    string tnapis[MAX];
-
+    const int MAX = 100, N = 4;
+    string tmp_napis, tnapis[MAX];
     char tablica_c[N];
 
     // podpunkt A
@@ -23,13 +20,24 @@ int main() {
         cout << "Wprowadz napis nr " << i + 1 << " z " << k << endl;
         cin >> tnapis[i];
         tmp_napis = tnapis[i];
-        if (tmp_napis[tmp_napis.size()] = tmp_napis[0]) {
-            suma = suma + tmp_napis.size();
+        if (tmp_napis[0] = tmp_napis[tmp_napis.length() - 1]) {
+            suma = suma + tmp_napis.length();
             m++;
         }
-        if (suma = )
+
+        /*if (tmp_napis[tmp_napis.size() -1] == tmp_napis[0]) {
+            suma = suma + tmp_napis.size();
+            m++;
+        }*/
     }
-    cout << "Srednia: " << 1.0 * suma / m << endl;
+
+    if (suma != 0) {
+        cout << "Srednia: " << 1.0 * suma / m << endl;
+    }
+    else {
+        cout << "Nie podano napisu" << endl;
+    }
+    
 
     // podpunkt C
     for (int i = 0; i < N; i++) {
@@ -41,7 +49,6 @@ int main() {
     cout << endl;
 
     for (int cykl = 0; cykl < N; cykl++) {
-        
 
         cout << "Cykl " << cykl << ": ";
 
