@@ -11,7 +11,7 @@ int main() {
 
     // podpunkt A
     do {
-        cout << "Wprowadz liczbe calkowita k: " << endl;
+        cout << "Wprowadz liczbe calkowita \"k\": " << endl;
         cin >> k;
     } while (k < 0 && k >= 9);
 
@@ -20,33 +20,24 @@ int main() {
         cout << "Wprowadz napis nr " << i + 1 << " z " << k << endl;
         cin >> tnapis[i];
         tmp_napis = tnapis[i];
-        if (tmp_napis[0] = tmp_napis[tmp_napis.length() - 1]) {
-            suma = suma + tmp_napis.length();
-            m++;
-        }
-
-        /*if (tmp_napis[tmp_napis.size() -1] == tmp_napis[0]) {
+        if (tmp_napis[0] == tmp_napis[tmp_napis.size()-1]) {
             suma = suma + tmp_napis.size();
             m++;
-        }*/
+        }
     }
 
     if (suma != 0) {
         cout << "Srednia: " << 1.0 * suma / m << endl;
     }
     else {
-        cout << "Nie podano napisu" << endl;
+        cout << "Nie podano napisu. Liczba cakowita \"k\" wynosi 0" << endl;
     }
-    
 
     // podpunkt C
+    cout << "Wprowadz " << N << " znaki. Tylko na koncu wcisnac ENTER." << endl;
     for (int i = 0; i < N; i++) {
-        cout << "Wprowadz " << i + 1 << " element tablicy" << endl;
         cin >> tablica_c[i];
     }
-
-    cout << "Drukuj tablica_c: " << tablica_c;
-    cout << endl;
 
     for (int cykl = 0; cykl < N; cykl++) {
 
@@ -57,13 +48,13 @@ int main() {
         }
         cout << endl;
 
-        char temp = tablica_c[N-1];
+        char tmp = tablica_c[N-1];
 
         for (int i = N-1; i > 0; i--) {
             tablica_c[i] = tablica_c[i-1];
         }
       
-        tablica_c[0] = temp;   
+        tablica_c[0] = tmp;   
     }
     return 0;
 }
