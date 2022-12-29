@@ -21,7 +21,7 @@ int main() {
         cin >> tnapis[i];
         tmp_napis = tnapis[i];
         if (tmp_napis[0] == tmp_napis[tmp_napis.size()-1]) {
-            suma = suma + tmp_napis.size();
+            suma += tmp_napis.size();
             m++;
         }
     }
@@ -30,7 +30,7 @@ int main() {
         cout << "Srednia: " << 1.0 * suma / m << endl;
     }
     else {
-        cout << "Nie podano napisu. Liczba cakowita \"k\" wynosi 0" << endl;
+        cout << "Nie podano napisu, ktory spelnia warunek, lub liczba cakowita \"k\" wynosi 0" << endl;
     }
 
     // podpunkt C
