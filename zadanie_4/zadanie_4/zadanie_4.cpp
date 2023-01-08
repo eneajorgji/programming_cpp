@@ -20,8 +20,7 @@ int main()
     }
 
     // Punkt B
-    // wydruk tablicy  bez modifikacji
-    cout << "Punkt B" << endl;
+    cout << "Wydruk tablicy wierszami z ustawiona szerokoscia wydruku W" << endl;
     for (int i = 0; i < W; i++) {
         double suma_wiersza = 0.0;
         for (int j = 0; j < K; j++) {
@@ -33,8 +32,6 @@ int main()
     }
 
     // Punkt C
-    // wymien oceny mniejsze niz srednia, z srednia wiersza
-    cout << "Punkt C" << endl;
     for (int i = 0; i < W; i++) {
         double suma_wiersza = 0.0;
         for (int j = 0; j < K; j++) {
@@ -49,7 +46,7 @@ int main()
     }
 
     // Punkt D
-    // wydrukuje modifikowano tablice
+    cout << "Ponowny wydruk tablicy (modyfikowana), bez wydrukowania sredniej na koncu kazdego wiersza" << endl;
     for (int i = 0; i < W; i++) {
         for (int j = 0; j < K; j++) {
             cout << setw(WYDRUK_WIERSZA) << setprecision(2) << fixed << A[i][j];
@@ -58,7 +55,7 @@ int main()
     }
 
     //Punkt E
-    cout << "maksymalna wartosc dla kazdej kolumny" << endl;
+    cout << "Maksymalna wartosc dla kazdej kolumny" << endl;
     for (int j = 0; j < K; j++) {
         double wartosc_max = A[0][j];
         for (int i = 0; i < W; i++) {
