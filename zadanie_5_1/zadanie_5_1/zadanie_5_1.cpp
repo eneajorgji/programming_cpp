@@ -12,7 +12,8 @@ int main()
     const int n = 10, P = 2, D = 6;
     double C = 11.5;
     double A[n][n];
-    ifstream plk_we("daneR.txt");
+
+    ifstream plk_we("daneR1.txt");
 
     //tablica z elementami C
     for (int i = 0; i < n; i++) {
@@ -22,13 +23,19 @@ int main()
     }
 
     // load date from file
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (!plk_we.eof()) {
-                plk_we >> A[i][j];
+    if (plk_we.is_open()) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (!plk_we.eof()) {
+                    plk_we >> A[i][j];
+                }
             }
         }
     }
+    else {
+        cout << "Plik \"daneR.txt\" nie istnieje." << endl;
+    }
+    
 
     //wydruk elementow tablicy
     cout << "Tablica podstawowa: " << endl;
@@ -62,6 +69,7 @@ int main()
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             cout << setw(D) << fixed << setprecision(P) << A[i][j] << " ";
+
         }
         cout << endl;
     }
