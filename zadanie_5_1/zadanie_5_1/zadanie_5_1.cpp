@@ -9,28 +9,10 @@ using namespace std;
 
 int main()
 {
-    /*ifstream plk_we;
-    string bufor;
-
-    plk_we.open("dane.txt");
-
-    if (!plk_we.is_open()) {
-        cout << "Blad otwarcia pliku" << endl;
-        return 1;
-    }
-    else {
-        cout << "Plik zostal wczytany" << endl;
-    }
-
-    while (!plk_we.eof()) {
-        getline(plk_we, bufor);
-        cout << bufor << endl;
-    }
-
-    plk_we.close();*/
-
-    const int n = 10, C = 11.1, P = 2, D = 6;
-    int A[n][n];
+    const int n = 10, P = 2, D = 6;
+    double C = 11.5;
+    double A[n][n];
+    ifstream plk_we("daneR.txt");
 
     //tablica z elementami C
     for (int i = 0; i < n; i++) {
@@ -39,37 +21,17 @@ int main()
         }
     }
 
-    ifstream file("daneR.txt");
-    string wiersz;
-    int i = 0, j = 0;
-
     // load date from file
-    while (getline(file, wiersz)) {
-        istringstream iss(wiersz);
-        double temp;
-        while (iss >> temp) {
-            A[i][j] = temp;
-            j++;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (!plk_we.eof()) {
+                plk_we >> A[i][j];
+            }
         }
-        while (j < n) {
-            A[i][j] = C;
-            j++;
-        }
-        i++;
-        j = 0;
-    }
-
-    while (i < n) {
-        while (j < n) {
-            A[i][j] = C;
-            j++;
-        }
-        i++;
-        j = 0;
     }
 
     //wydruk elementow tablicy
-    cout << "Tablica podstawowe: " << endl;
+    cout << "Tablica podstawowa: " << endl;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             cout << setw(D) << fixed << setprecision(P) << A[i][j] << " ";
@@ -77,9 +39,46 @@ int main()
         cout << endl;
     }
     
-    //najmniejsza liczba pierwszej digonali
+    //3. najmniejsza liczba na glownej przekatnej, dopisac ja do calego wiersza
+    double mniejsza_przekatna = A[0][0];
+    int najmniejsza_przekatna_wiersz = 0;
+    for (int i = 0; i < n; i++) {
+        if (A[i][i] < mniejsza_przekatna) {
+            mniejsza_przekatna = A[i][i];
+            najmniejsza_przekatna_wiersz = i;
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        A[najmniejsza_przekatna_wiersz][i] = mniejsza_przekatna;
+    }
+    // ---------------------------------------------------------------- //
+    //4. zamienic miejscami skrajne elementy na drugiej przekatnej
+    double tmp = A[0][n - 1];
+    A[0][n - 1] = A[n - 1][0];
+    A[n - 1][0] = tmp;
 
+    //5. wykrud modyfiwkowanej tablicy
+    cout << "Modyfikowana tablica" << endl;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << setw(D) << fixed << setprecision(P) << A[i][j] << " ";
+        }
+        cout << endl;
+    }
 
+    string nazwa_plk_wy;
+
+    cout << "Podaj nazwe pliku: ";
+    cin >> nazwa_plk_wy;
+
+    ofstream plk_wy(nazwa_plk_wy);
+    for (int i = 0; i < n; i += 2) {
+        for (int j = 0; j < n; j++) {
+            plk_wy << setw(D) << fixed << setprecision(P) << A[i][i] << " ";
+        }
+        plk_wy << endl;
+    }
+    plk_wy.close();
 
     return 0;
 }
