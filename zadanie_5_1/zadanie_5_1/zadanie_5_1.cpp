@@ -29,19 +29,19 @@ int main()
 
     plk_we.close();*/
 
-    const int n = 10, C = 99, P = 2, D = 6;
+    const int n = 10, C = 11.1, P = 2, D = 6;
     int A[n][n];
-
-    ifstream file("dane.txt");
-    string wiersz;
-    int i = 0, j = 0;
 
     //tablica z elementami C
     for (int i = 0; i < n; i++) {
-    for (int j = 0; j < n; j++) {
-        A[i][j] = C;
+        for (int j = 0; j < n; j++) {
+            A[i][j] = C;
+        }
     }
-}
+
+    ifstream file("daneR.txt");
+    string wiersz;
+    int i = 0, j = 0;
 
     // load date from file
     while (getline(file, wiersz)) {
