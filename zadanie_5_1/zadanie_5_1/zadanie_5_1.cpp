@@ -27,14 +27,14 @@ int main()
 			}
 		}
 
-		// load date from file
-		for (int i = 0; i < n; i++) {
+		// wczyta dane z pliku
+		/*for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				if (!plk_we.eof()) {
 					plk_we >> A[i][j];
 				}
 			}
-		}
+		}*/
 
 		/*int i = 0, j = 0;
 		while (plk_we >> A[i][j] && i < n) {
@@ -56,16 +56,12 @@ int main()
 			}
 		}*/
 
-		/*string linia;
-		int i = 0, j = 0;
-		while (getline(plk_we, linia) && i < n) {
-			stringstream ss(linia);
-			while (ss >> A[i][j] && j < n) {
-				j++;
-			}
+		int i = 0;
+		int zmien_pom;
+		while (plk_we >> zmien_pom && i < n * n) {
+			A[i / n][i % n] = zmien_pom;
 			i++;
-		}*/
-
+		}
 
 		//wydruk elementow tablicy
 		cout << "Tablica podstawowa: " << endl;
