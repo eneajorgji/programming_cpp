@@ -45,6 +45,28 @@ int main()
 			}
 		}*/
 
+		/*int licz=0, x_pomoc = n * n;
+		while (licz <= x_pomoc) {
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < n; j++) {
+					if (!plk_we.eof()) {
+						plk_we >> A[i][j];
+					}
+				}
+			}
+		}*/
+
+		/*string linia;
+		int i = 0, j = 0;
+		while (getline(plk_we, linia) && i < n) {
+			stringstream ss(linia);
+			while (ss >> A[i][j] && j < n) {
+				j++;
+			}
+			i++;
+		}*/
+
+
 		//wydruk elementow tablicy
 		cout << "Tablica podstawowa: " << endl;
 		for (int i = 0; i < n; i++) {
