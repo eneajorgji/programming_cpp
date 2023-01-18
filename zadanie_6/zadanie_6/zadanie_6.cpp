@@ -1,20 +1,44 @@
-// zadanie_6.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <string>
+#include <cstdlib>
+#include <cctype>
+#include <iomanip>
+
+using namespace std;
+
+struct Sstudent
+{
+    char inicjal_1, inicjal_2;
+    double ocena;
+};
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    //zminne
+    const double G = 5.0; //maksymalna ocena
+    const int w = 2, k = 3;
+
+     // zadeklarujemy zmienn¹ typu Sstudent: 
+    Sstudent A[w][k];
+    
+    //generator losowania
+    srand(time(0));
+
+    for (int i = 0; i < w; i++) {
+        for (int j = 0; j < k; j++) {
+            A[i][j].inicjal_1 = static_cast<char>('A' + rand() % 26);
+            A[i][j].inicjal_2 = static_cast<char>('A' + rand() % 26);
+            A[i][j].ocena = static_cast<double>(rand()) / static_cast<double>(RAND_MAX / G);
+        }
+    }
+
+    // print the updated records
+    for (int i = 0; i < w; i++) {
+        for (int j = 0; j < k; j++) {
+            cout << A[i][j].inicjal_1 << A[i][j].inicjal_2  << " " << fixed << setprecision(2) << A[i][j].ocena << endl;
+        }
+    }
+
+
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
