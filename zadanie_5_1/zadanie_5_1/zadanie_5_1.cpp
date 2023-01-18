@@ -28,34 +28,6 @@ int main()
 		}
 
 		// wczyta dane z pliku
-		/*for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
-				if (!plk_we.eof()) {
-					plk_we >> A[i][j];
-				}
-			}
-		}*/
-
-		/*int i = 0, j = 0;
-		while (plk_we >> A[i][j] && i < n) {
-			j++;
-			if (j == n) {
-				j = 0;
-				i++;
-			}
-		}*/
-
-		/*int licz=0, x_pomoc = n * n;
-		while (licz <= x_pomoc) {
-			for (int i = 0; i < n; i++) {
-				for (int j = 0; j < n; j++) {
-					if (!plk_we.eof()) {
-						plk_we >> A[i][j];
-					}
-				}
-			}
-		}*/
-
 		int i = 0;
 		int zmien_pom;
 		while (plk_we >> zmien_pom && i < n * n) {
@@ -72,7 +44,7 @@ int main()
 			cout << endl;
 		}
 
-		//3. najmniejsza liczba na glownej przekatnej, dopisac ja do calego wiersza
+		//najmniejsza liczba na glownej przekatnej, dopisac ja do calego wiersza
 		double mniejsza_przekatna = A[0][0];
 		int najmniejsza_przekatna_wiersz = 0;
 		for (int i = 0; i < n; i++) {
@@ -85,12 +57,12 @@ int main()
 			A[najmniejsza_przekatna_wiersz][i] = mniejsza_przekatna;
 		}
 
-		//4. zamienic miejscami skrajne elementy na drugiej przekatnej
+		//zamienic miejscami skrajne elementy na drugiej przekatnej
 		double tmp = A[0][n - 1];
 		A[0][n - 1] = A[n - 1][0];
 		A[n - 1][0] = tmp;
 
-		//5. wykruduj modyfiwkowana tablica
+		//wykruduj modyfiwkowana tablica
 		cout << "Tablica modyfikowana" << endl;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
@@ -100,12 +72,12 @@ int main()
 			cout << endl;
 		}
 
+		//zapisac do pliku o nazwie podane przez uzytkownika
 		string nazwa_plk_wy;
-
 		cout << "Podaj nazwe pliku: ";
 		cin >> nazwa_plk_wy;
-
 		ofstream plk_wy(nazwa_plk_wy);
+
 		for (int i = 0; i < n; i += 2) {
 			for (int j = 0; j < n; j++) {
 				plk_wy << setw(D) << fixed << setprecision(P) << A[i][j] << " ";
