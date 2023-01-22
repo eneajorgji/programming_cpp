@@ -1,20 +1,38 @@
-// zadanie_7.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+
+const int w = 6, k = 5;
+
+void Losuj_znaki(char tablica[w][k], char poczatek, char koniec) {
+
+    srand(time(0));
+    
+    for (int i = 0; i < w; i++) {
+        for (int j = 0; j < k; j++) {
+            tablica[i][j] = poczatek + rand() % (koniec - poczatek + 1);
+        }
+    }
+}
+
+void Wydrukuj_tablice_zn(char tablica[w][k]) {
+    for (int i = 0; i < w; i++) {
+        for (int j = 0; j < k; j++) {
+            cout << tablica[w][k] << " ";
+        }
+        cout << endl;
+    }
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    cout << "Hello World!\n";
+    cout << endl;
+
+    char Cy[w][k];
+    Losuj_znaki(Cy, 'A', 'K');
+    Wydrukuj_tablice_zn(Cy);
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
