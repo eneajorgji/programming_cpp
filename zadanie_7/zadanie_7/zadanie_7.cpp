@@ -13,7 +13,8 @@ void Losuj_znaki(char tablica[w][k], char poczatek, char koniec) {
     
     for (int i = 0; i < w; i++) {
         for (int j = 0; j < k; j++) {
-            tablica[i][j] = poczatek + rand() % (koniec - poczatek + 1);
+            char los_zn = poczatek + rand() % (koniec - poczatek + 1);
+            tablica[i][j] = los_zn;
         }
     }
 }
@@ -35,4 +36,6 @@ int main()
     char Cy[w][k];
     Losuj_znaki(Cy, 'A', 'K');
     Wydrukuj_tablice_zn(Cy);
+
+    cout << 'A' + rand() % ('Z' - 'A' + 1) << endl;
 }
