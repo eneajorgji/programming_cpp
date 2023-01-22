@@ -1,3 +1,3 @@
 ﻿  zadanie_7.cpp
-C:\Users\jorgj\OneDrive\Documents\B.Eng.SC\5. Semestr - PS 2\1. Programowanie\zadania_z_wykladow\zadanie_7\zadanie_7\zadanie_7.cpp(12,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\jorgj\OneDrive\Documents\B.Eng.SC\5. Semestr - PS 2\1. Programowanie\zadania_z_wykladow\zadanie_7\zadanie_7\zadanie_7.cpp(11,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   zadanie_7.vcxproj -> C:\Users\jorgj\OneDrive\Documents\B.Eng.SC\5. Semestr - PS 2\1. Programowanie\zadania_z_wykladow\zadanie_7\x64\Debug\zadanie_7.exe
