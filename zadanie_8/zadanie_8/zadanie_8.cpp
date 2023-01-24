@@ -27,8 +27,10 @@ void drukowanie(Sstudent A[], int n) {
     for (int i = 0; i < n; i++) {
         cout << A[i].inicjal_1 << A[i].inicjal_2 << " " << fixed << setprecision(2) << A[i].ocena << " ";
     }
+    cout << endl;
 }
-double max(Sstudent A[], int n) {
+
+double ocena_max(Sstudent A[], int n) {
     double tmp_max = 0.0;
 
     for (int i = 0; i < n; i++) {
@@ -45,8 +47,11 @@ double srednia(Sstudent A[], int n) {
     for (int i = 0; i < n; i++) {
         tmp_sum = tmp_sum + A[i].ocena;
     }
-    return tmp_sum / n;
+
+    return tmp_sum;
 }
+
+
 
 int main() {
     const int n = 4;
@@ -55,11 +60,11 @@ int main() {
 
     srand(time(0));
 
-    // losowanie
+    //losowanie
     losowanie(G1, n);
     losowanie(G2, n);
 
-    // drukowanie
+    //drukowanie
     cout << "G1" << endl;
     drukowanie(G1, n);
     cout << endl;
@@ -68,13 +73,18 @@ int main() {
 
     // ró¿nica maxów
     cout << endl;
-    cout << "roznica maxow wynosi: " << abs(max(G1, n) - max(G2, n)) << endl;
+    cout << "roznica maxow wynosi: " << abs(ocena_max(G1, n) - ocena_max(G2, n)) << endl;
     double tmp1 = srednia(G1, n), tmp2 = srednia(G2, n);
-    //cout<<"tmp1 "<<tmp1<<endl;
-    //cout<<"tmp2 "<<tmp2<<endl;
-    if (tmp1 > tmp2) cout << "wieksza jest srednia w G1 i wynosi: " << srednia(G1, n);
-    if (tmp1 < tmp2) cout << "wieksza jest srednia w G2 i wynosi: " << srednia(G2, n);
-    if (tmp1 = tmp2) cout << " srednie sa rowne i  wynosza: " << srednia(G1, n);
+    
+    if (tmp1 > tmp2) {
+        cout << "Wieksza jest srednia w G1 i wynosi: " << srednia(G1, n);
+    }
+    else if (tmp1 < tmp2) {
+        cout << "Wieksza jest srednia w G2 i wynosi: " << srednia(G2, n);
+    }
+    else {
+        cout << "Srednie sa rowne i  wynosza: " << srednia(G1, n);
+    }
 
     return 0;
 }
