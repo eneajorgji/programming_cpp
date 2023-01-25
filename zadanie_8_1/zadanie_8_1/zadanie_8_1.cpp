@@ -11,6 +11,8 @@ struct Sstudent {
     double ocena;
 };
 
+const int n = 6;
+
 double jenda_funkcja(Sstudent A[], int n, double &srednia_ocen) {
     const double G = 5.0;
 
@@ -54,7 +56,7 @@ int main() {
     
     double srednia_ocena_G1 = 0.0;
     double srednia_ocena_G2 = 0.0;
-    const int n = 6;
+    //const int n = 6;
 
     Sstudent G1[n];
     Sstudent G2[n];
